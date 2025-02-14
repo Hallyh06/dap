@@ -1,0 +1,79 @@
+/* Dashboard Header */
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background-color: #07631e;
+  color: white;
+}
+
+.dashboard-header .logo-title h2 {
+  margin-left: 10px;
+  color: white;
+}
+
+.accreditation-container {
+  padding: 20px;
+  background-color: #f9fbfd;
+  min-height: 100vh;
+  margin-top: 150px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 1200px;
+}
+
+.accreditation-container h2 {
+  color: white;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+table {
+  width: 90%; /* Makes table take up 90% of screen width */
+  max-width: 1200px; /* Optional: Prevents it from being too large on wide screens */
+  background: white;
+  border-collapse: collapse;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+th, td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+th {
+  background-color: #07631e;
+  color: white;
+}
+
+tr:hover {
+  background-color: #f1f1f1;
+}
+
+.forward-btn {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: 0.3s;
+}
+
+.forward-btn:hover {
+  background-color: #218838;
+}
+
+.disabled-btn {
+  background-color: gray;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  cursor: not-allowed;
+  border-radius: 4px;
+}

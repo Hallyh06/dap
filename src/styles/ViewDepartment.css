@@ -1,0 +1,74 @@
+.view-department {
+  padding: 30px;
+  background-color: #f8f8f8;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 100%; /* Ensures the container takes up the full width of the screen */
+}
+
+.view-department h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.department-list {
+  margin-top: 20px;
+  width: 100%; /* Ensure the table container takes up the full width */
+}
+
+.department-list table {
+  width: 100%; /* Make the table take up the entire container width */
+  border-collapse: collapse;
+  margin-top: 20px;
+  table-layout: fixed; /* Ensures the table columns stretch evenly */
+}
+
+.department-list th, .department-list td {
+  padding: 12px;
+  text-align: left;
+  border: 1px solid #ddd;
+  word-wrap: break-word; /* Ensures long words break into multiple lines if needed */
+}
+
+.department-list th {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.department-list tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.department-list tr:hover {
+  background-color: #e9f7e9;
+}
+
+.btn-update {
+  text-decoration: none;
+  background-color: #4CAF50;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 4px;
+  margin-right: 10px;
+  transition: background-color 0.3s;
+}
+
+.btn-update:hover {
+  background-color: #45a049;
+}
+
+@media (max-width: 768px) {
+  .department-list table {
+    font-size: 14px;
+    width: 100%; /* Ensure the table still fills the container on smaller screens */
+  }
+
+  .department-list th, .department-list td {
+    padding: 8px; /* Reduce padding on smaller screens for better readability */
+  }
+
+  .btn-update {
+    padding: 5px 10px;
+  }
+}

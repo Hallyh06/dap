@@ -1,0 +1,267 @@
+/* Dashboard.css */
+
+/* Ensure the header spans the full width */
+.dashboard-header {
+  width: 100%;
+  background-color: #07802b; /* NUC Blue */
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 70px;
+  z-index: 1000;
+}
+
+/* Logo and Title Styling */
+.logo-title {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  height: 50px;
+  margin-right: 15px;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+}
+
+.user-info span {
+  margin-right: 15px;
+}
+
+.logout-btn {
+  background-color: #d9534f;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.logout-btn:hover {
+  background-color: #c9302c;
+}
+
+/* Dashboard Content */
+.dashboard-container {
+  padding-top: 90px; /* Prevent content from being hidden behind the fixed header */
+}
+
+.dashboard-content {
+  padding: 20px;
+}
+
+/* Statistics Cards */
+.stats-overview {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.stat-card {
+  background: #f8f9fa;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  flex: 1;
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Charts Section */
+.charts {
+  display: flex;
+  gap: 20px;
+}
+
+.chart {
+  flex: 1;
+  padding: 20px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Quick Links */
+.quick-links {
+  margin-top: 30px;
+}
+
+.quick-links ul {
+  list-style: none;
+  padding: 0;
+}
+
+.quick-links ul li {
+  margin: 10px 0;
+}
+
+.quick-links ul li a {
+  text-decoration: none;
+  color: #004080;
+  font-weight: bold;
+}
+
+.secondary-nav {
+  width: 100%;
+  background-color: #004080;
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+}
+
+.nav-menu {
+  list-style: none;
+  display: flex;
+  justify-content: space-around;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-menu > li {
+  position: relative;
+  cursor: pointer;
+  padding: 10px 20px;
+}
+
+/* Hover effect on navigation items */
+.nav-menu > li:hover {
+  background-color: #002a5c;
+}
+
+/* Dropdown Menu */
+.dropdown {
+  position: absolute;
+  top: 100%; /* Position it right below the menu item */
+  left: 0;
+  background-color: white;
+  color: black;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 200px;
+  display: none; /* Hidden by default */
+  flex-direction: column; /* Vertically stacked items */
+  border: 1px solid #ddd;
+}
+
+.nav-menu > li:hover .dropdown {
+  display: flex; /* Show dropdown on hover */
+}
+
+.dropdown li {
+  padding: 10px;
+}
+
+.dropdown li:hover {
+  background-color: #f0f0f0;
+}
+
+/* Dashboard Header */
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background-color: #07631e;
+  color: white;
+}
+
+.dashboard-header .logo-title h2 {
+  margin-left: 10px;
+  color: white;
+}
+
+/* User Info */
+.dashboard-header .user-info {
+  display: flex;
+  align-items: center;
+}
+
+.dashboard-header .logout-btn {
+  margin-left: 10px;
+  padding: 5px 15px;
+  background-color: #ff4d4d;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+/* Horizontal Quick Links Menu */
+.quick-links-nav {
+  background-color: #f4f4f4;
+  padding: 10px 0;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.quick-links-nav ul {
+  display: flex;
+  justify-content: space-around;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+.quick-links-nav ul li {
+  margin: 0 15px;
+}
+
+.quick-links-nav ul li a {
+  text-decoration: none;
+  color: #045315;
+  font-weight: bold;
+  padding: 10px 20px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.quick-links-nav ul li a:hover {
+  background-color: #00662c;
+  color: white;
+}
+
+/* Dashboard Content */
+.dashboard-content {
+  padding: 20px;
+}
+
+/* Stats Overview Cards */
+.stats-overview {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.stat-card {
+  background-color: #fff;
+  border-radius: 5px;
+  padding: 20px;
+  width: 30%;
+  text-align: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.stat-card h3 {
+  margin-bottom: 10px;
+}
+
+/* Charts Section */
+.charts {
+  display: flex;
+  justify-content: space-between;
+}
+
+.chart {
+  width: 48%;
+}
+
+/* Logo */
+.logo-title img {
+  margin-right: 10px;
+}
