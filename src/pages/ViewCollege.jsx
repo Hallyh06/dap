@@ -28,7 +28,7 @@ const ViewCollege = () => {
     <div className="college-container">
 
     {/* Top Navigation Bar */}
-          <header className="dashboard-header">
+          <header className="dashboard-header" style={{ backgroundColor: 'green', borderRadius: '0px' }}>
             <div className="logo-title">
               <img src={AppLogo} alt="Logo" style={{ width: '100px', height: '100px' }} />
               <h2>NUC Accreditation System</h2>

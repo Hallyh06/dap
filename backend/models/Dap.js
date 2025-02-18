@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const bcrypt = require('bcrypt');
 
 const DapSchema = new mongoose.Schema({
   fullName: {
@@ -11,12 +12,14 @@ const DapSchema = new mongoose.Schema({
     required: true,
     unique: true,
     trim: true,
-    lowercase: true
+    lowercase: true,
+    match: [/^\S+@\S+\.\S+$/, 'Invalid email format']
   },
   phone: {
     type: String,
     required: true,
-    unique: true
+    unique: true,
+    match: [/^\d{10,15}$/, 'Invalid phone number format']
   },
   password: {
     type: String,
@@ -32,5 +35,13 @@ const DapSchema = new mongoose.Schema({
     default: 'active'
   }
 }, { timestamps: true });
+
+// Hash password before saving
+DapSchema.pre('save', async function (next) {
+  if (!this.isModified('password')) return next();
+  const salt = await bcrypt.genSalt(10);
+  this.password = await bcrypt.hash(this.password, salt);
+  next();
+});
 
 module.exports = mongoose.model('Dap', DapSchema);

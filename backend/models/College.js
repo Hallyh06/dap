@@ -2,16 +2,21 @@ const mongoose = require("mongoose");
 
 const collegeSchema = new mongoose.Schema(
   {
-    collegeId: { 
+    collegeCode: { 
       type: String, 
       required: true, 
       unique: true 
-    }, // Unique identifier for the college
+    }, // Unique code for the college
 
     name: { 
       type: String, 
       required: true 
     },
+
+    deanName: { 
+      type: String, 
+      required: true 
+    }, // Name of the college dean
 
     description: { 
       type: String, 
@@ -22,12 +27,7 @@ const collegeSchema = new mongoose.Schema(
       type: mongoose.Schema.Types.ObjectId, 
       ref: "University", 
       required: true 
-    },
-
-    departments: [{ 
-      type: mongoose.Schema.Types.ObjectId, 
-      ref: "Department" 
-    }]
+    }
   }, 
   { timestamps: true }
 );

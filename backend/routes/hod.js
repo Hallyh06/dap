@@ -16,8 +16,8 @@ router.post('/add', async (req, res) => {
 
 //view HODs
 router.get('/view', async (req, res) => {
-    const hods = await HOD.find();
-    res.json(hods);
+    const nuc_hods = await HOD.find();
+    res.json(nuc_hods);
 });
 
 

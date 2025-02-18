@@ -13,6 +13,12 @@ const accreditationRoutes  =  require('./routes/accreditation.js') ;
 
 const dapRoutes = require('./routes/dapRoutes');
 
+const universityRoutes = require('./routes/universities.js');
+const collegeRoutes = require('./routes/college.js');
+const nucStaffRoutes = require('./routes/nucStaffRoute.js');
+
+//const nucDocumentsRoute = require('./routes/nucDocuments.js');
+
 dotenv.config();
 const app = express();
 
@@ -20,6 +26,9 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 app.use('/uploads', express.static('uploads'));
+
+
+
 
 // Multer setup for file uploads
 const storage = multer.diskStorage({
@@ -35,6 +44,14 @@ app.use('/api/auth', authRoutes);
 app.use('/api/hod', hodRoutes);
 app.use('/api/accreditation', accreditationRoutes);
 app.use('/api/dap', dapRoutes);
+app.use('/api', universityRoutes);
+//app.use('/api/university', universityRoutes);
+app.use('/api/college', collegeRoutes);
+
+//app.use("/api/nuc_staffs", nucStaffRoutes); // Use API route
+//app.use('/api/nuc_documents', nucDocumentsRoute);
+
+
 
 // Connect to MongoDB
 mongoose.connect(process.env.MONGO_URI).then(() => {

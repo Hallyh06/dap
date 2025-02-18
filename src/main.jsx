@@ -21,11 +21,18 @@ import AddHOD from './pages/AddHOD';
 import ViewHOD from './pages/ViewHOD';
 import UpdateHOD from './pages/UpdateHOD';
 
+import AddUniversity from './pages/AddUniversity';
+import FetchLecturers from './pages/FetchLecturers';
+
+import ProtectedRoutes from './components/ProtectedRoutes';
+
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <Router>
       <Routes>
         <Route path="/" element={<Login />} />
+         {/* Protect Dashboard Route */}
+        
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/hod-management" element={<HODManagement />} />
         <Route path="/accreditation" element={<Accreditation />} />
@@ -42,6 +49,9 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         <Route path='/add-hod' element={<AddHOD />} />
         <Route path='/view-hod' element={<ViewHOD />} />
         <Route path='/update-hod' element={<UpdateHOD />} />
+        <Route path='/add-university' element={<AddUniversity />} />
+        <Route path='/fetch_lecturers' element={<FetchLecturers />} />
+ 
       </Routes>
     </Router>
   </React.StrictMode>

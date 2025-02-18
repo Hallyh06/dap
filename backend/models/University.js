@@ -1,24 +1,24 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 
-const universitySchema = new mongoose.Schema({
+const UniversitySchema = new mongoose.Schema({
   name: { 
     type: String, 
-    required: true, 
-    unique: true 
-},
- location: { 
+    required: true
+   },
+   code: {
     type: String, 
-    required: true 
-},
-  accreditationStatus: { 
+    required: true
+   },
+   information: {
     type: String, 
-    enum: ["Accredited", "Pending", "Revoked"], 
-    default: "Pending" 
-},
-  colleges: [{ 
-    type: mongoose.Schema.Types.ObjectId, 
-    ref: "College" }],
-}, 
-{ timestamps: true });
+    required: true
+   },
+   status: {
+    type: Boolean, 
+    required: true
+   }
+});
 
-module.exports = mongoose.model("University", universitySchema);
+const University = mongoose.model('nuc_universities', UniversitySchema); // Ensure it matches your collection name
+
+module.exports = University;

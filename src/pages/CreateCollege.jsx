@@ -1,64 +1,78 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import "../styles/CreateCollege.css"; // Import the CSS file
 import AppLogo from "../assets/nuc_logox.png";
+import { useNavigate } from "react-router-dom";
 
 const CreateCollege = () => {
+  const navigate = useNavigate();
   const user = { name: "John Doe" }; // Placeholder for logged-in user data
-  const [collegeId, setCollegeId] = useState("");
-  const [collegeName, setCollegeName] = useState("");
-  const [description, setDescription] = useState("");
-  const [university, setUniversity] = useState("");
-  const [universities, setUniversities] = useState([]);
 
-  useEffect(() => {
-    // Fetch list of universities
-    axios.get("http://localhost:5000/api/universities")
-      .then(response => setUniversities(response.data))
-      .catch(error => console.error("Error fetching universities:", error));
-  }, []);
+  const [collegeCode, setCollegeCode] = useState("");
+  const [collegeName, setCollegeName] = useState("");
+  const [deanName, setDeanName] = useState("");
+  const [description, setDescription] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
+    setError("");
+
     try {
       const response = await axios.post("http://localhost:5000/api/colleges", {
-        collegeId,
+        collegeCode,
         name: collegeName,
+        deanName,
         description,
-        university,
       });
+
       alert(response.data.message);
-      setCollegeId("");
+
+      // Clear form fields
+      setCollegeCode("");
       setCollegeName("");
+      setDeanName("");
       setDescription("");
-      setUniversity("");
+
+      // Navigate to another page (e.g., college list)
+      navigate("/colleges");
     } catch (error) {
-      alert("Error creating college");
+      setError("Error creating college. Please try again.");
+    } finally {
+      setLoading(false);
     }
   };
 
   return (
     <div className="form-container">
       {/* Top Navigation Bar */}
-            <header className="dashboard-header">
-              <div className="logo-title">
-                <img src={AppLogo} alt="Logo" style={{ width: '100px', height: '100px' }} />
-                <h2>NUC Accreditation System</h2>
-              </div>
-              <div className="user-info">
-                <span>Welcome, {user.name}</span>
-                <button className="logout-btn">Logout</button>
-              </div>
-            </header>
+      <header className="dashboard-header" style={{ backgroundColor: 'green', borderRadius: '0px' }}>
+        <div className="logo-title">
+          <img src={AppLogo} alt="Logo" style={{ width: "100px", height: "100px" }} />
+          <h2>NUC Accreditation System</h2>
+        </div>
+        <div className="user-info">
+          <span>Welcome, {user.name}</span>
+          <button className="logout-btn" onClick={() => {/* Implement logout functionality */}}>
+            Logout
+          </button>
+        </div>
+      </header>
 
-            <h2>Create College</h2>
-      <form onSubmit={handleSubmit}>
+      <h2>Create College</h2>
+
+      {loading && <p>Loading...</p>}
+      {error && <p className="error-message">{error}</p>}
+
+      <form onSubmit={handleSubmit} style={{ width: '600px', padding: '20px' }}>
         <div className="input-group">
           <input
             type="text"
-            placeholder="Enter College ID"
-            value={collegeId}
-            onChange={(e) => setCollegeId(e.target.value)}
+            placeholder="Enter College Code"
+            value={collegeCode}
+            onChange={(e) => setCollegeCode(e.target.value)}
             required
           />
         </div>
@@ -74,6 +88,16 @@ const CreateCollege = () => {
         </div>
 
         <div className="input-group">
+          <input
+            type="text"
+            placeholder="Enter Dean's Name"
+            value={deanName}
+            onChange={(e) => setDeanName(e.target.value)}
+            required
+          />
+        </div>
+
+        <div className="input-group">
           <textarea
             placeholder="Enter College Description"
             value={description}
@@ -82,22 +106,9 @@ const CreateCollege = () => {
           />
         </div>
 
-        <div className="input-group">
-          <select
-            value={university}
-            onChange={(e) => setUniversity(e.target.value)}
-            required
-          >
-            <option value="">Select University</option>
-            {universities.map((uni) => (
-              <option key={uni._id} value={uni._id}>
-                {uni.name}
-              </option>
-            ))}
-          </select>
-        </div>
-
-        <button type="submit">Add College</button>
+        <button type="submit" disabled={loading}>
+          {loading ? "Adding College..." : "Add College"}
+        </button>
       </form>
     </div>
   );

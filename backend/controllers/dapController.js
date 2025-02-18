@@ -36,8 +36,8 @@ exports.createDap = async (req, res) => {
 // Get all Dap users
 exports.getAllDaps = async (req, res) => {
   try {
-    const daps = await Dap.find();
-    res.status(200).json(daps);
+    const nuc_daps = await Dap.find();
+    res.status(200).json(nuc_daps);
   } catch (error) {
     res.status(500).json({ message: 'Error fetching Dap users', error });
   }

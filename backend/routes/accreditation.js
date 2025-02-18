@@ -33,6 +33,18 @@ router.put('/forward/:id', async (req, res) => {
     }
   });
 
+
+  // Fetch all accreditation documents from nuc_documents
+router.get('/nuc-documents', async (req, res) => {
+  try {
+      const documents = await NucDocument.find(); // Fetch all documents
+      res.status(200).json(documents);
+  } catch (error) {
+      console.error("Error fetching NUC documents:", error);
+      res.status(500).json({ error: "Failed to fetch documents" });
+  }
+});
+
   
 
 
